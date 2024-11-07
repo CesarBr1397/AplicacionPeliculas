@@ -1,0 +1,66 @@
+﻿@using Entidades
+@model E_Pelicula
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Home">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Home/irMostrar">Mostrar peliculas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/irAgregar">Agregar pelicula</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/IrMostrarEditar">Editar pelicula</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/IrMostrarBorrar">Borrar pelicula</a>
+        </li>
+    </ul>
+
+    <div>
+        <div class="container">
+            <h1 class="display-1"> Editar  @Model.nombre</h1>
+            <form action="/Home/actualizar" method="post">
+                <br />
+
+                <input type="hidden" name="idPelicula" value="@Model.idPelicula" />
+
+                <div class="input-group mb-3" style="width: 300px;">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
+                    <input value="@Model.nombre" name="nombre" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3" style="width: 300px;">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Genero</span>
+                    <input value="@Model.genero" name="genero" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3" style="width: 400px;">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Fecha de lanzamiento</span>
+                    <input name="fechaLanzamiento" value="@Model.fechaLanzamiento.ToString("yyyy-MM-ddTHH:mm")" type="datetime-local" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <a href="/Home/IrAtrasEditar" class="btn btn-outline-primary">Cancelar</a>
+                <input type="submit" value="Editar" class="btn btn-outline-success" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

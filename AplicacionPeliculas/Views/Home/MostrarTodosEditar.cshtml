@@ -1,0 +1,59 @@
+﻿@using Entidades;
+
+@model List<E_Pelicula>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Mostrar</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Home">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Home/irMostrar">Mostrar peliculas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/irAgregar">Agregar pelicula</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/IrMostrarEditar">Editar pelicula</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/IrMostrarBorrar">Borrar pelicula</a>
+        </li>
+    </ul>
+
+    <div class="container">
+        <div class="row">
+            @foreach (E_Pelicula pelicula in Model)
+            {
+                <div class="col-3 mt-3">
+                    <div class="card">
+                        <img src="~/Imgs/@pelicula.nombreImagen" class="card-img-top" style="height:400px">
+                        <div class="card-body">
+                            <p><b>@pelicula.nombre</b></p>
+                            <p><b>@pelicula.genero</b></p>
+                            <p><b>@pelicula.fechaLanzamiento</b></p>
+                            <div class=" text-center">
+                                <a href="/Home/editarPorId?idPelicula=@pelicula.idPelicula" class="btn btn-primary">Editar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Agregar</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Home">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Home/irMostrar">Mostrar peliculas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/irAgregar">Agregar pelicula</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/IrMostrarEditar">Editar pelicula</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/IrMostrarBorrar">Borrar pelicula</a>
+        </li>
+    </ul>
+
+    <div class="container">
+        <h1 class=" display-1"> Agregar película</h1>
+
+        <form action="/Home/Agregar" method="post" enctype="multipart/form-data">
+            <br />
+
+            <div class="input-group mb-3" style="width: 300px;">
+                <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
+                <input name="nombre" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+
+            <div class="input-group mb-3" style="width: 300px;">
+                <span class="input-group-text" id="inputGroup-sizing-default">Género</span>
+                <input name="genero" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+
+            <div class="input-group mb-3" style="width: 400px;">
+                <span class="input-group-text" id="inputGroup-sizing-default">Fecha de lanzamiento</span>
+                <input name="fechaLanzamiento" type="datetime-local" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+
+            <div class="input-group mb-3" style="width: 400px;">
+                <span class="input-group-text" id="inputGroup-sizing-default">Imagen</span>
+                <input name="ArchivoImagen" type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+
+            <input class="btn btn-primary" type="submit" name="agregar" value="Agregar" />
+
+        </form>
+
+    </div>
+</body>
+</html>

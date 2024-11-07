@@ -1,0 +1,110 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inicio</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Home">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Home/irMostrar">Mostrar peliculas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/irAgregar">Agregar pelicula</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/IrMostrarEditar">Editar pelicula</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Home/IrMostrarBorrar">Borrar pelicula</a>
+        </li>
+    </ul>
+
+
+    <div class="container ">
+
+        <form action="/Home/Buscar" method="post">
+            <div class="row mt-4">
+                <div class="col-6">
+                    <input type="text" name="textoBusqueda" class="form-control" placeholder="Busca tu pelicula favorita"/>
+                </div>
+                <div class="col-2">
+                    <input type="submit" value="Buscar" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+        <br />
+
+        <div class="py-8 bg-white">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <div class="mb-5">
+
+                            @if (TempData["mensaje"] != null)
+                            {
+                                <div class="alert alert-success d-flex align-items-center" role="alert">
+                                    <svg class="bi flex-shrink-0 me-2" width="16" height="16" role="img" aria-label="Success:">
+                                        <use xlink:href="#check-circle-fill" />
+                                    </svg>
+                                    <div>
+                                        @TempData["mensaje"]
+                                    </div>
+                                </div>
+                            }
+
+                            @if (TempData["error"] != null)
+                            {
+                                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                    <svg class="bi flex-shrink-0 me-2" width="16" height="16" role="img" aria-label="Danger:">
+                                        <use xlink:href="#exclamation-triangle-fill" />
+                                    </svg>
+                                    <div>
+                                        @TempData["error"]
+                                    </div>
+                                </div>
+                            }
+
+                            <h1 class="display-3 mb-4 fw-bold">Bienvenido a la cartelera de cine</h1>
+                            <p class="lead mb-4 pe-xl-12">Aquí podrás encontrar las mejores peliculas de los últimos años.</p>
+                            <a href="https://www.tomatazos.com/peliculas" class="btn btn-primary">Aquí puedes ver reseñas de tus peliculas favoritas</a>
+                        </div>
+                    </div>
+                    <!-- Image section -->
+                    <div class="col-lg-6 col-12">
+                        <div class="row">
+                            <!-- Column 1 -->
+                            <div class="col-md-4 col-4 px-1">
+                                <div class="bg-cover rounded-3 mb-2" style="background-image: url('https://i.pinimg.com/736x/7d/9d/d5/7d9dd59eb9abb04c8e43494f150af4b7.jpg'); height: 180px; background-size: cover; background-color: #f0f0f0;"></div>
+                                <div class="bg-cover rounded-3 mb-2" style="background-image: url('https://hips.hearstapps.com/hmg-prod/images/poster-joker-2-1567010576.jpg'); height: 250px; background-size: cover; background-color: #f0f0f0;"></div>
+                            </div>
+                            <!-- Column 2 -->
+                            <div class="col-md-4 col-4 px-1">
+                                <div class="bg-cover rounded-3 mb-2" style="background-image: url('https://es.web.img2.acsta.net/pictures/23/07/20/11/29/5479684.jpg'); height: 250px; background-size: cover; background-color: #f0f0f0;"></div>
+                                <div class="bg-cover rounded-3 mb-2" style="background-image: url('https://pics.filmaffinity.com/Spider_Man_No_Way_Home-642739124-large.jpg'); height: 250px; background-size: cover; background-color: #f0f0f0;"></div>
+                            </div>
+                            <!-- Column 3 -->
+                            <div class="col-md-4 col-4 px-1">
+                                <div class="bg-cover rounded-3 mb-2" style="background-image: url('https://es.web.img3.acsta.net/pictures/21/08/25/14/35/3349802.jpg'); height: 200px; background-size: cover; background-color: #f0f0f0;"></div>
+                                <div class="bg-cover rounded-3 mb-2" style="background-image: url('https://es.web.img3.acsta.net/pictures/23/02/06/17/15/3568166.jpg'); height: 200px; background-size: cover; background-color: #f0f0f0;"></div>
+                                <div class="bg-cover rounded-3 mb-2" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoqYEtNRjOAJ6jsEwcVHTD2-iQi2dtRZGTXw&s'); height: 200px; background-size: cover; background-color: #f0f0f0;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </body>
+</html>
